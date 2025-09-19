@@ -84,3 +84,16 @@
         margin-right: 10px;
     }
 }
+
+
+/* Keep the icons clickable above any overlay (animated cursor, etc.) */
+.stick_follow_icon { z-index: 1000; }
+.stick_follow_icon a,
+.stick_follow_icon .social-link {
+  position: relative;
+  z-index: 1001;
+  pointer-events: auto;
+}
+
+/* Safety: animated cursor wrapper should not intercept clicks */
+.cursor__dot { pointer-events: none !important; }
