@@ -1,4 +1,3 @@
-import React from "react";
 import vish1 from "./asset1/vish1.jpeg";
 
 const logotext = "VM";
