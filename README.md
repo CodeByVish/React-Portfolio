@@ -19,7 +19,6 @@ Deploy instantly on **Netlify** .
 **Mobile**
 ![Mobile hero](./docs/screenshots/hero-mobile.png)
 
-> See “Add screenshots to this README” below if these don’t show yet.
 
 ---
 
