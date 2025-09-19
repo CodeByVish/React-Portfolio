@@ -1,9 +1,12 @@
 import React from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { socialprofils as defaultSocials } from "../../content_option";
 import "./style.css";
 
-// Named function: Socialicons (matches imports elsewhere)
-function Socialicons({ socialprofils = {} }) {
+// Uses props if provided, otherwise falls back to content_option.js
+function Socialicons({ socialprofils }) {
+  const socials = socialprofils || defaultSocials || {};
+
   const items = [
     { key: "github", Icon: FaGithub },
     { key: "linkedin", Icon: FaLinkedinIn },
@@ -12,7 +15,7 @@ function Socialicons({ socialprofils = {} }) {
   return (
     <div className="social-icons">
       {items.map(({ key, Icon }) => {
-        const href = socialprofils[key];
+        const href = socials[key];
         if (!href) return null;
         return (
           <a
@@ -30,5 +33,5 @@ function Socialicons({ socialprofils = {} }) {
   );
 }
 
-export { Socialicons };      // named export (fixes “not exported” error)
-export default Socialicons;  // default export (also supported)
+export { Socialicons };
+export default Socialicons;
