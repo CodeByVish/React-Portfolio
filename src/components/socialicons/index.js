@@ -2,12 +2,13 @@ import React from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import "./style.css";
 
-// Renders only the socials you actually provided in content_option.js
-export default function SocialIcons({ socialprofils = {} }) {
+// Named function: Socialicons (matches imports elsewhere)
+function Socialicons({ socialprofils = {} }) {
   const items = [
     { key: "github", Icon: FaGithub },
     { key: "linkedin", Icon: FaLinkedinIn },
   ];
+
   return (
     <div className="social-icons">
       {items.map(({ key, Icon }) => {
@@ -28,3 +29,6 @@ export default function SocialIcons({ socialprofils = {} }) {
     </div>
   );
 }
+
+export { Socialicons };      // named export (fixes “not exported” error)
+export default Socialicons;  // default export (also supported)
