@@ -13,13 +13,8 @@ concurrency:
   group: "pages"
   cancel-in-progress: true
 
-# Run all shell steps inside your app folder:
-defaults:
-  run:
-    working-directory: "portfolio-web-main 2"
-
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -30,28 +25,46 @@ jobs:
         with:
           node-version: 18
 
-      # If "npm ci" fails due to lockfile mismatch, use npm install:
+      # Detect where the app actually is (root vs nested folder with a space)
+      - name: Detect app directory
+        id: detect
+        run: |
+          if [ -f "package.json" ]; then
+            echo "APP_DIR=." >> $GITHUB_ENV
+          elif [ -f "portfolio-web-main 2/package.json" ]; then
+            echo "APP_DIR=portfolio-web-main 2" >> $GITHUB_ENV
+          else
+            echo "Could not find package.json at root or in 'portfolio-web-main 2'"; exit 1
+          fi
+          echo "Using APP_DIR=$GITHUB_ENV"
+
       - name: Install deps
-        run: npm install
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+        working-directory: ${{ env.APP_DIR }}
 
       - name: Build
         run: npm run build
+        working-directory: ${{ env.APP_DIR }}
 
+      # SPA refresh fix
       - name: Create 404 for SPA routing
         run: cp build/index.html build/404.html
+        working-directory: ${{ env.APP_DIR }}
+
+      # Tell Pages where the built files are
+      - name: Set artifact path
+        run: echo "BUILDDIR=${{ env.APP_DIR }}/build" >> $GITHUB_ENV
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./portfolio-web-main 2/build
+          path: ${{ env.BUILDDIR }}
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
