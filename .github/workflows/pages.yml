@@ -25,46 +25,68 @@ jobs:
         with:
           node-version: 18
 
-      # Detect where the app actually is (root vs nested folder with a space)
+      # 1) Find where package.json lives (root or a subfolder)
       - name: Detect app directory
         id: detect
+        shell: bash
         run: |
+          set -e
           if [ -f "package.json" ]; then
-            echo "APP_DIR=." >> $GITHUB_ENV
-          elif [ -f "portfolio-web-main 2/package.json" ]; then
-            echo "APP_DIR=portfolio-web-main 2" >> $GITHUB_ENV
+            APP_DIR="."
           else
-            echo "Could not find package.json at root or in 'portfolio-web-main 2'"; exit 1
+            # search within 2 levels for package.json
+            FOUND=$(find . -maxdepth 2 -type f -name package.json | head -n 1 || true)
+            if [ -z "$FOUND" ]; then
+              echo "❌ No package.json found at repo root or one folder down."
+              echo "Hint: ensure you uploaded the app files (src, public, package.json) to this repo."
+              exit 1
+            fi
+            APP_DIR=$(dirname "$FOUND")
           fi
-          echo "Using APP_DIR=$GITHUB_ENV"
+          echo "APP_DIR=$APP_DIR" >> $GITHUB_ENV
+          echo "✅ Using APP_DIR=$APP_DIR"
 
+      # 2) Copy the app into a safe temp dir (no spaces) to avoid path issues
+      - name: Prepare safe workspace
+        shell: bash
+        run: |
+          set -e
+          SAFE_DIR="${RUNNER_TEMP}/app"
+          mkdir -p "$SAFE_DIR"
+          shopt -s dotglob
+          cp -R "$APP_DIR"/* "$SAFE_DIR"/
+          echo "SAFE_DIR=$SAFE_DIR" >> $GITHUB_ENV
+          echo "✅ Copied app to $SAFE_DIR"
+          echo "Contents of SAFE_DIR:"
+          ls -la "$SAFE_DIR"
+
+      # 3) Install dependencies (prefer lockfile if present)
       - name: Install deps
+        working-directory: ${{ env.SAFE_DIR }}
         run: |
           if [ -f package-lock.json ]; then
             npm ci
           else
             npm install
           fi
-        working-directory: ${{ env.APP_DIR }}
 
+      # 4) Build
       - name: Build
+        working-directory: ${{ env.SAFE_DIR }}
         run: npm run build
-        working-directory: ${{ env.APP_DIR }}
 
-      # SPA refresh fix
+      # 5) SPA refresh fix
       - name: Create 404 for SPA routing
+        working-directory: ${{ env.SAFE_DIR }}
         run: cp build/index.html build/404.html
-        working-directory: ${{ env.APP_DIR }}
 
-      # Tell Pages where the built files are
-      - name: Set artifact path
-        run: echo "BUILDDIR=${{ env.APP_DIR }}/build" >> $GITHUB_ENV
-
+      # 6) Upload the built site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ env.BUILDDIR }}
+          path: ${{ env.SAFE_DIR }}/build
 
+      # 7) Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
