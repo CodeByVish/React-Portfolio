@@ -1,4 +1,4 @@
-# 💼 React Portfolio — Data/ML Template
+# 💼 React Portfolio — Ready To Use Template
 
 **Live demo:** [https://svish-portfolio.netlify.app](https://svish-portfolio.netlify.app)
 
