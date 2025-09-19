@@ -11,19 +11,19 @@ const meta = {
 const introdata = {
   title: "I’m Vishakha Maheshwari",
   animated: {
-    first: "I build data products that ship.",
-    second: "RAG, LangChain, and Streamlit in the toolkit.",
+    first: "I make ML explain itself.",
+    second: "I solve real problems with data.",
     third: "From raw data to clear decisions."
   },
   description:
-    "Aspiring Data Scientist with a strong foundation in machine learning, NLP, and predictive analytics. I love turning messy data into deployable apps and decision-ready dashboards.",
+    "Aspiring Data Scientist with a strong foundation in ML, NLP, and predictive analytics. I love turning messy data into deployable apps and decision-ready dashboards.",
   your_img_url: vish1
 };
 
 const dataabout = {
   title: "Introduction",
   aboutme:
-    "B.Tech CSE, VIT Vellore (2021–2025). Currently an AI Enablement Intern at Gradiant Industries (Abu Dhabi), where I’m building a custom GPT solution with RAG + LangChain and a Streamlit ML pipeline for sales forecasting. Previously built Qlik Sense applications at Zurich Kotak General Insurance and analytics dashboards at Deloitte (M.E.). Passionate about applied ML and data-driven decision making."
+    "B.Tech CSE, VIT'25 graduate. Currently an AI Enablement Intern at Gradiant Industries , where I’m building a custom GPT solution with RAG + LangChain and a Streamlit ML pipeline for sales forecasting. Previously built Qlik Sense applications at Zurich Kotak General Insurance and analytics dashboards at Deloitte (M.E.). Passionate about applied ML and data-driven decision making."
 };
 
 const worktimeline = [
@@ -46,8 +46,7 @@ const worktimeline = [
 
 const skills = [
   { name: "Python", value: 90 },
-  { name: "SQL", value: 85 },
-  { name: "C++", value: 70 },
+  { name: "SQL", value: 90 },
   { name: "Qlik Sense", value: 90 },
   { name: "Power BI", value: 85 },
   { name: "Tableau", value: 80 },
