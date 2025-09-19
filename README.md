@@ -5,7 +5,7 @@
 **Author:** [Vishakha Maheshwari](https://github.com/CodeByVish)
 
 A modern, responsive React portfolio with light/dark mode and a one-file content model.
-Update text, skills, and projects right on GitHub—no terminal required.
+Update text, skills, and projects right on GitHub.
 Deploy instantly on **Vercel** .
 
 
