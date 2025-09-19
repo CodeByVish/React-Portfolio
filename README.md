@@ -14,10 +14,10 @@ Deploy instantly on **Netlify** .
 ## 👀 Preview
 
 **Desktop**
-![Desktop hero](./docs/screenshots/hero-desktop.png)
+![Desktop hero](./docs/screenshots/hero_desktop.png)
 
 **Mobile**
-![Mobile hero](./docs/screenshots/hero-mobile.png)
+![Mobile hero](./docs/screenshots/hero_mobile.png)
 
 > See “Add screenshots to this README” below if these don’t show yet.
 
