@@ -1,12 +1,12 @@
 # 💼 React Portfolio — Ready To Use Template
 
-**Live demo:** [https://svish-portfolio.netlify.app](https://svish-portfolio.netlify.app)
+**Live demo:** https://vishakha-maheshwari-portfolio.vercel.app/
 
 **Author:** [Vishakha Maheshwari](https://github.com/CodeByVish)
 
 A modern, responsive React portfolio with light/dark mode and a one-file content model.
 Update text, skills, and projects right on GitHub—no terminal required.
-Deploy instantly on **Netlify** .
+Deploy instantly on **Vercel** .
 
 
 ---
@@ -71,23 +71,26 @@ Deploy instantly on **Netlify** .
 
 ---
 
-## 🌐 Deploy to Netlify (recommended)
+## 🌐 Deploy to Vercel
 
-1. Go to [https://app.netlify.com/start](https://app.netlify.com/start) → pick **GitHub** → choose your repo
-2. **Build command:** `npm run build`  **Publish directory:** `build`
-3. **Environment variables:**
+1. Go to **[https://vercel.com](https://vercel.com)** → **Continue with GitHub** → authorize.
+2. Click **Add New → Project** → select **your repo**.
+3. **Framework Preset:** *Create React App*
+4. **Build command:**
 
-   * `NODE_VERSION = 18`
-   * *(Optional)* `CI = false` (if ESLint warnings block builds)
-4. Ensure these files exist in your repo:
+   ```bash
+   npm run build
+   ```
+5. **Output directory:**
 
-   * `package.json` contains `"homepage": "."`
-   * `public/_redirects` contains:
+   ```text
+   build
+   ```
+6. Click **Deploy** → your site goes live at `*.vercel.app`.
+7. *(Optional)* **Settings → Domains** → add a clean subdomain and **Set as Primary**.
 
-     ```
-     /* /index.html 200
-     ```
-5. Deploy → set a clean site name under **Domain management**.
+> This template uses **HashRouter**, so routes like `/#/about` work out of the box on Vercel.
+
 
 ---
 
