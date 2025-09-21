@@ -80,7 +80,7 @@ export const About = () => {
           </Col>
         </Row>
         <Row className="sec_sp">
-          <Col lang="5">
+          <Col lg="5">
             <h3 className="color_sec py-4">Personal Project</h3>
           </Col>
           <Col lg="7">
