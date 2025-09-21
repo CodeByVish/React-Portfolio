@@ -113,7 +113,7 @@ const contactConfig = {
   YOUR_FONE: "+971 *******83",
   description:
     "Open to research internships and full-time roles in Data Science / ML. Let’s collaborate on applied ML, analytics dashboards, or AI enablement projects.",
-  YOUR_SERVICE_ID: "service_zb3bmu8",
+  YOUR_SERVICE_ID: "service_3xvc9mp",
   YOUR_TEMPLATE_ID: "template_uz8avrh",
   YOUR_USER_ID: "Yj5ojzhdk8jHrR9mG"
 };
