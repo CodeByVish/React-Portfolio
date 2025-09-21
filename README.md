@@ -28,7 +28,6 @@ Deploy instantly on **Vercel** .
 * **Light/Dark mode.** Built-in theme toggle (top-right).
 * **Social rail.** GitHub + LinkedIn on the left.
 * **Download CV.** Button links to a PDF in `/public` for a frictionless download.
-* **SPA-proof.** Works on Netlify (hash routing + refresh fix).
 * **Responsive.** Looks great on phones, tablets, and desktops.
 
 ---
