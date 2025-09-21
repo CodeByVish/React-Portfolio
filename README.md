@@ -110,37 +110,18 @@ Deploy instantly on **Vercel** .
 
 Toggle lives in the header. Colors use CSS variables — tweak in `src/index.css` & `src/app/App.css`.
 
----
-
-## 🖼️ Add screenshots to this README
-
-1. Create folders in your repo: `docs/screenshots/`
-
-   * On GitHub → **Add file → Create new file** → type `docs/screenshots/.gitkeep` → **Commit**.
-2. Upload your images into that folder:
-
-   * **hero-desktop.png** — desktop hero screenshot
-   * **hero-mobile.png** — mobile hero screenshot
-3. Commit. The image paths above already point to:
-   `./docs/screenshots/hero-desktop.png` and `./docs/screenshots/hero-mobile.png`
-4. If they still don’t show, hard-refresh the GitHub page (Ctrl + F5) and verify the filenames match exactly (including case).
 
 ---
 
 ## 🔁 Updating later
 
-* Edit on GitHub → **Commit** → Netlify redeploys automatically
+* Edit on GitHub → **Commit** → Vercel redeploys automatically
 * Hard refresh once (Ctrl + F5)
 
 ---
 
 ## 🧪 Troubleshooting
 
-**Blank page on Netlify**
-
-* `package.json` has `"homepage": "."`
-* `public/_redirects` contains `/* /index.html 200`
-* `src/app/App.js` uses **HashRouter** (or BrowserRouter with `basename="/"`)
 
 **Social icons not clickable**
 
