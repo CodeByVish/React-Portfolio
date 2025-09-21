@@ -16,9 +16,6 @@ Deploy instantly on **Vercel** .
 **Desktop**
 ![Desktop hero](./docs/screenshots/hero_desktop.png)
 
-**Mobile**
-![Mobile hero](./docs/screenshots/hero-mobile.png)
-
 
 ---
 
