@@ -1,6 +1,6 @@
 // src/pages/contact/index.js
 import React, { useState } from "react";
-import emailjs from "@emailjs/browser"; // npm i @emailjs/browser
+import * as emailjs from "emailjs-com"; // npm i @emailjs/browser
 import "./style.css";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { meta } from "../../content_option";
