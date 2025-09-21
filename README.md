@@ -4,10 +4,21 @@
 
 **Author:** [Vishakha Maheshwari](https://github.com/CodeByVish)
 
-A modern, responsive React portfolio with light/dark mode and a one-file content model.
-Update text, skills, and projects right on GitHub.
-Deploy instantly on **Vercel** .
 
+
+## 📖 About  
+
+This project is my **personal portfolio website**, built with **React** and styled using **Bootstrap**.  
+It highlights my background, skills, work experience, and selected projects in a modern and responsive design.  
+
+### Key features include:  
+- 🎨 Clean UI with smooth animations  
+- 📂 Projects showcase with live links and GitHub repos  
+- 📧 Contact form powered by **EmailJS**  
+- 🔗 Social media integration (GitHub, LinkedIn, etc.)  
+- 🚀 Easy deployment via **GitHub Pages / Netlify / Vercel**  
+
+The portfolio is fully customizable — all content (about me, skills, projects, links, etc.) can be updated from a single config file (`src/content_option.js`), making it simple to maintain.  
 
 ---
 
